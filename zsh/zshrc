@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# some useful options (man zshoptions)
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
+
+# Load aliases and shortcuts if existent.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+
+# beeping is annoying
+unsetopt BEEP
+
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
+
+# completions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+# zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
+# compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Colors
+autoload -Uz colors && colors
+
+# Useful Functions
+source "$ZDOTDIR/zsh-functions"
+
+# Normal files to source
+zsh_add_file "zsh-prompt"
+zsh_add_file "zsh-vim-mode"
+# zsh_add_file "zsh-asdf"
+
+# Plugins
+zsh_add_plugin "zdharma/fast-syntax-highlighting"
+
+eval `dircolors ~/.config/zsh/dircolors`
+
