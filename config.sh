@@ -11,3 +11,4 @@ ln -fs ~/personal/dotfiles/zsh ~/.config/zsh
 ln -fs ~/personal/dotfiles/shell ~/.config/shell
 ln -fs ~/personal/dotfiles/zshenv ~/.zshenv
 ln -fs ~/personal/dotfiles/tmux ~/.config/tmux
+sudo ln -fs ~/personal/dotfiles/etc/wsl.conf /etc/wsl.conf
