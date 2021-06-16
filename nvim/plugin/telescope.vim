@@ -12,4 +12,3 @@ nnoremap <leader>ed :lua require('vellankiindeevar.telescope').search_dotfiles()
 nnoremap <leader>gb :lua require('vellankiindeevar.telescope').git_branches()<CR>
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
-nnoremap <C-f> :lua require('vellankiindeevar.telescope').find_files_in_directory_of_buffer()<CR>

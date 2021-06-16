@@ -33,7 +33,7 @@ local M = {}
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< dotfiles >",
-        cwd = "~/personal/vellankiindeevar",
+        cwd = "~/personal/dotfiles",
         winblend = 10,
 
     })
@@ -42,7 +42,7 @@ end
 M.search_nvim = function()
     require("telescope.builtin").find_files({
         prompt_title = "< nvim >",
-        cwd = "~/personal/vellankiindeevar/nvim",
+        cwd = "~/personal/dotfiles/nvim",
         winblend = 10,
 
         layout_config = {
@@ -59,12 +59,6 @@ M.git_branches = function()
             map('n', '<c-d>', actions.git_delete_branch)
             return true
         end
-    })
-end
-
-M.find_files_in_directory_of_buffer = function()
-  require('telescope.builtin').find_files({
-      cwd = vim.fn.expand("%:p:h"),
     })
 end
 

@@ -82,4 +82,3 @@ fun! EmptyRegisters()
     endfor
 endfun
 
-
