@@ -50,6 +50,7 @@ nnoremap <c-e> <cmd>:NvimTreeToggle<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
+nnoremap <Leader>rp :resize 100<CR>
 nnoremap <leader>s :so ~/.config/nvim/init.vim<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
