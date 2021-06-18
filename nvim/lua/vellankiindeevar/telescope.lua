@@ -5,7 +5,6 @@ require('telescope').setup {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' >',
         color_devicons = true,
-
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
@@ -34,7 +33,6 @@ M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< dotfiles >",
         cwd = "~/personal/dotfiles",
-        winblend = 10,
 
     })
 end
@@ -43,8 +41,6 @@ M.search_nvim = function()
     require("telescope.builtin").find_files({
         prompt_title = "< nvim >",
         cwd = "~/personal/dotfiles/nvim",
-        winblend = 10,
-
         layout_config = {
           preview_width = 0.55,
 

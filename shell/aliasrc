@@ -20,8 +20,8 @@ alias \
 	mkd="mkdir -pv" \
 	apt="sudo apt-get" \
 	clip="clip.exe" \
-        brave='"/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"' \
-	subl='"/c/Program Files/Sublime Text 3/subl.exe"' \
+    brave='"/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"' \
+	subl='"/c/Program Files/Sublime Text/subl.exe"' \
 	sz="source ~/.config/zsh/.zshrc" \
 
 

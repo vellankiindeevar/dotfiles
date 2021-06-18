@@ -7,9 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'gruvbox-community/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " telescope requirements...
@@ -65,6 +64,8 @@ vnoremap ; :
 " paste the last yanked not deleted
 nnoremap ,p "0p
 nnoremap ,P "0P
+
+inoremap <C-c> <esc>
 
 " -----------------
 " Python

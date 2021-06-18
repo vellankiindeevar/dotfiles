@@ -38,10 +38,11 @@ source "$ZDOTDIR/zsh-functions"
 
 # Normal files to source
 zsh_add_file "zsh-prompt"
-zsh_add_file "zsh-vim-mode"
 
 # Plugins
 zsh_add_plugin "zdharma/fast-syntax-highlighting"
+zsh_add_plugin "jeffreytse/zsh-vi-mode"
 
 eval `dircolors ~/.config/zsh/dircolors`
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

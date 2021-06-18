@@ -1,7 +1,3 @@
-filetype plugin indent on
-syntax on
-set backspace=indent,eol,start
-
 set relativenumber
 set nohlsearch
 set hidden
@@ -37,4 +33,4 @@ set shortmess+=c
 set colorcolumn=80
 
 
-set mouse=a 
+set mouse=a
