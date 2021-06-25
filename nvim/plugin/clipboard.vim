@@ -1,5 +1,4 @@
 set clipboard+=unnamedplus
-
 let g:clipboard = {
   \ 'name': 'WSLClipboard',
   \ 'copy': {

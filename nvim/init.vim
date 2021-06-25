@@ -5,6 +5,8 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
     autocmd VimEnter * PlugInstall
 endif
 
+"  TODO: init.vim >> init.lua ( comming soon )
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'hoob3rt/lualine.nvim'
@@ -27,25 +29,37 @@ Plug 'nvim-treesitter/playground'
 Plug 'p00f/nvim-ts-rainbow'
 
 Plug 'szw/vim-maximizer'
-Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'mbbill/undotree'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'airblade/vim-rooter'
+
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+
+Plug 'folke/todo-comments.nvim'
+
+Plug 'Olical/aniseed', { 'tag': 'v3.19.0' }
+Plug 'Olical/fennel.vim'
+
 
 call plug#end()
+
+let g:aniseed#env = v:true
 
 lua require("vellankiindeevar")
 
 let mapleader = " "
+
+
 tnoremap <Esc> <C-\><C-n><CR>
-nnoremap <c-e> <cmd>:NvimTreeToggle<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
@@ -61,6 +75,8 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap ; :
 vnoremap ; :
 
+nnoremap <leader>d :bdelete<CR>
+
 " paste the last yanked not deleted
 nnoremap ,p "0p
 nnoremap ,P "0P
@@ -70,6 +86,7 @@ inoremap <C-c> <esc>
 " -----------------
 " Python
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
 
 augroup vellankiindeevar
     autocmd!

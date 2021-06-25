@@ -3,6 +3,7 @@ local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
+        set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
         prompt_prefix = ' >',
         color_devicons = true,
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
@@ -57,6 +58,33 @@ M.git_branches = function()
         end
     })
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 return M
 
