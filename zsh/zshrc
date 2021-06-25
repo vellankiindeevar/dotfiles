@@ -49,4 +49,3 @@ eval `dircolors ~/.config/zsh/dircolors`
 
 bindkey -s '^f' '~/personal/dotfiles/tmux/tmux2\n'
 
-
