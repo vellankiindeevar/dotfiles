@@ -1,3 +1,8 @@
+set path+=**
+
+set wildmode=longest,list,full
+set wildmenu
+
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
     echo "Downloading junegunn/vim-plug to manage plugins..."
     silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -49,7 +54,6 @@ Plug 'folke/todo-comments.nvim'
 Plug 'Olical/aniseed', { 'tag': 'v3.19.0' }
 Plug 'Olical/fennel.vim'
 
-
 call plug#end()
 
 let g:aniseed#env = v:true
@@ -86,7 +90,6 @@ inoremap <C-c> <esc>
 " -----------------
 " Python
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
 
 augroup vellankiindeevar
     autocmd!

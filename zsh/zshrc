@@ -47,5 +47,5 @@ eval `dircolors ~/.config/zsh/dircolors`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-bindkey -s '^f' '~/personal/dotfiles/tmux/tmux2\n'
+bindkey -s ^f "~/personal/dotfiles/tmux/tmux2\n"
 
