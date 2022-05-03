@@ -1,10 +1,5 @@
-require'lspconfig'.pyls.setup{}
-require'lspconfig'.vimls.setup{}
-
-
-vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
-
-
+require'lspconfig'.pyright.setup{ --connect to the server 
+  on_attach = function()
+    vim.keymap.set("n","K",vim.lsp.buf.hover,{buffer=0})
+  end,
+}

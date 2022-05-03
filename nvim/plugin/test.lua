@@ -1,0 +1,1 @@
+-- vim.keymap.set('n','fr',require"test_plugin.rename")

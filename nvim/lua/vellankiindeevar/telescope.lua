@@ -1,11 +1,11 @@
-local themes = require('telescope.themes')
 local actions = require('telescope.actions')
+
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
-        set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
         prompt_prefix = ' >',
         color_devicons = true,
+
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
@@ -21,70 +21,22 @@ require('telescope').setup {
         fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
-        }
+        },
+        file_browser={
+    }
     }
 }
 
-require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
+require("telescope").load_extension "file_browser"
 
 local M = {}
 
-M.search_dotfiles = function()
-    require("telescope.builtin").find_files({
-        prompt_title = "< dotfiles >",
-        cwd = "~/personal/dotfiles",
-
-    })
-end
-
 M.search_nvim = function()
     require("telescope.builtin").find_files({
-        prompt_title = "< nvim >",
-        cwd = "~/personal/dotfiles/nvim",
-        layout_config = {
-          preview_width = 0.55,
-
-        },
+        prompt_title = "< VimRC >",
+        cwd = "$HOME/.config/nvim/",
     })
-end
-
-M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map('i', '<c-d>', actions.git_delete_branch)
-            map('n', '<c-d>', actions.git_delete_branch)
-            return true
-        end
-    })
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  end
 
 return M
-

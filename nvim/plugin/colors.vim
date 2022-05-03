@@ -10,3 +10,5 @@ highlight netrwDir guifg=#5eacd3
 highlight qfFileName guifg=#aed75f
 hi TelescopeBorder guifg=#5eacd
 
+
+" lua require('colorbuddy').colorscheme('test_colorscheme')
