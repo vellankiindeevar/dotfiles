@@ -1,3 +1,6 @@
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
     echo "Downloading junegunn/vim-plug to manage plugins..."
     silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -10,12 +13,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'hoob3rt/lualine.nvim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akai54/2077.nvim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'ThePrimeagen/git-worktree.nvim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -30,21 +35,22 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'saadparwaiz1/cmp_luasnip'
 
-Plug 'SirVer/ultisnips'  
-Plug 'honza/vim-snippets'
-
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 Plug 'windwp/nvim-autopairs'
 Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rafcamlet/nvim-luapad'
-
+Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 lua require'vellankiindeevar'
+lua require("todo-comments").setup {}
 
 nnoremap ; :
 vnoremap ; :
@@ -65,3 +71,5 @@ augroup highlight_yank
 augroup END
 
 set autochdir
+
+nnoremap <leader>R :UpdateRemotePlugins<CR><CR>

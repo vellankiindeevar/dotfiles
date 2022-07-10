@@ -44,12 +44,8 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
-# Enable FZF (this replaces needing ~/.fzf.zsh in your home directory).
-if [[ ! "${PATH}" == *${XDG_DATA_HOME}/fzf/bin* ]]; then
-    export PATH="${PATH:+${PATH}:}/${XDG_DATA_HOME}/fzf/bin"
-fi
-[[ $- == *i* ]] && source "${XDG_DATA_HOME}/fzf/shell/completion.zsh" 2> /dev/null
-source "${XDG_DATA_HOME}/fzf/shell/key-bindings.zsh"
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # Configure FZF.
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
@@ -59,12 +55,12 @@ export FZF_DEFAULT_OPTS="--color=dark"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # Load zsh plugins.
-source "${XDG_DATA_HOME}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+source "${XDG_DATA_HOME}/fast-syntax-highlighting/F-Sy-H.plugin.zsh"
 source "${XDG_DATA_HOME}/simpler/simpler.zsh"
-source "${XDG_DATA_HOME}/zsh-z/zsh-z.plugin.zsh"
 
 # WSL 2 specific settings.
 if grep -q "microsoft" /proc/version &>/dev/null; then
    export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
    export LIBGL_ALWAYS_INDIRECT=1
 fi
+

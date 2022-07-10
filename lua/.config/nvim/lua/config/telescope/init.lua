@@ -1,4 +1,4 @@
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 
 require('telescope').setup {
     defaults = {
@@ -29,14 +29,18 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzy_native')
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension("git_worktree")
 
 local M = {}
 
 M.search_nvim = function()
-    require("telescope.builtin").find_files({
+    require"telescope.builtin".find_files({
         prompt_title = "< VimRC >",
-        cwd = "$HOME/.config/nvim/",
+        cwd = "$HOME/.config/nvim",
     })
   end
 
+vim.keymap.set("n","<leader>en", M.search_nvim)
+
 return M
+

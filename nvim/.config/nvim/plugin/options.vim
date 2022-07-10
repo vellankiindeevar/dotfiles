@@ -14,7 +14,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set termguicolors
-set scrolloff=8
+set scrolloff=20
 " set noshowmode
 set signcolumn=yes
 set isfname+=@-@
@@ -35,6 +35,5 @@ set colorcolumn=80
 
 set mouse=a
 set pumblend=10
-
 
 

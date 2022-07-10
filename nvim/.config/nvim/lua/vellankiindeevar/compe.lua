@@ -1,39 +1,30 @@
+-- i have to develope a source for autocompleting python packages and its versions
+require("luasnip.loaders.from_vscode").lazy_load()
 require('nvim-autopairs').setup{}
-vim.opt.completeopt = "menu,menuone,noselect"  
 
--- Setup nvim-cmp.
+vim.opt.completeopt = {"menu","menuone","noselect"}
 local cmp = require'cmp'
 
 cmp.setup({
   snippet = {
     expand = function(args)
-      -- For `vsnip` user.
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-
-      -- For `luasnip` user.
-      -- require('luasnip').lsp_expand(args.body)
-
-      -- For `ultisnips` user.
-      vim.fn["UltiSnips#Anon"](args.body)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
-  mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  mapping = cmp.mapping.preset.insert({
+    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  },
-  sources = {
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'ultisnips' },
+    { name = 'nvim_lua'},
+    { name = 'luasnip' }, -- For luasnip users.
     { name = 'buffer' },
-    { name = "buffer" },
-    { name = "path" },
-  }
+  })
 })
- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
-  }
+

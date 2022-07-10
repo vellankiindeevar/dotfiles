@@ -1,4 +1,3 @@
-
 local disable_distribution_plugins= function()
   vim.g.loaded_gzip              = 1
   vim.g.loaded_tar               = 1
@@ -30,11 +29,15 @@ function load()
   leader_map()
   disable_distribution_plugins()
   require'vellankiindeevar.clipboard'
-  require'vellankiindeevar.telescope'
   require'vellankiindeevar.compe'
   require'vellankiindeevar.treesitter'
   require'vellankiindeevar.lualine'
   require'vellankiindeevar.lsp'
+  require'vellankiindeevar.globals'
+  require'vellankiindeevar.telescope.telescope'
+  require'vellankiindeevar.telescope.wallpaper'
+  require'vellankiindeevar.telescope.buf-cht'
+  require'vellankiindeevar.telescope.harpoon'
 end
 
 load()
