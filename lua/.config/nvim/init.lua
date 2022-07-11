@@ -35,3 +35,4 @@ else
     require('plugins')
     load_post_plugin_config()
 end
+

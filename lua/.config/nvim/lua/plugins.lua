@@ -12,6 +12,14 @@ packer.init {
 -- Neovim package manager
 use 'wbthomason/packer.nvim'
 
+-- Kommentary
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
 -- Load Lua modules faster
 use 'lewis6991/impatient.nvim'
 
