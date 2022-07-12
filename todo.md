@@ -1,3 +1,1 @@
-fonts:
-python script to install all fonts ( hehe ) 
-
+zsh is not behaving well 
