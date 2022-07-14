@@ -22,26 +22,4 @@ function M.create_buf_augroup(bufnr, autocmds, name, clear)
     M.create_augroup(autocmds, name, clear)
 end
 
-------------------------------------------------------------
-local ok, plenary_reload = pcall(require, "plenary.reload")
-if not ok then
-  reloader = require
-else
-  reloader = plenary_reload.reload_module
-end
-
-M.P = function(v)
-  print(vim.inspect(v))
-  return v
-end
-
-RELOAD = function(...)
-  return reloader(...)
-end
-
-M.R = function(name)
-  RELOAD(name)
-  return require(name)
-end
-
 return M

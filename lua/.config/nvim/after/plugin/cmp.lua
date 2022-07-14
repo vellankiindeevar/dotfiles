@@ -25,7 +25,5 @@ cmp.setup({
     { name = 'nvim_lua'},
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'buffer' },
-    { name = 'path' },
   })
 })
-

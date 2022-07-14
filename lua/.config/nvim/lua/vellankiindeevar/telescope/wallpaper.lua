@@ -1,13 +1,16 @@
+local Remap = require("vellankiindeevar.keymap")
+local nnoremap = Remap.nnoremap
+
 local M = {}
 
 local function set_background(content)
-	vim.fn.system("dconf write /org/mate/desktop/background/picture-filename \"'" .. content .. "'\"")
+  vim.fn.system({'powershell.exe','wallpaper.pyw', content})
 end
 
 local function select_background(prompt_bufnr, map)
 	local function set_the_background(close)
 		local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
-		set_background(content.cwd .. "/" .. content.value)
+		set_background(content.value)
 		if close then
 			require("telescope.actions").close(prompt_bufnr)
 		end
@@ -27,6 +30,9 @@ local function image_selector(prompt, cwd)
 		require("telescope.builtin").find_files({
 			prompt_title = prompt,
 			cwd = cwd,
+      layout_config = {
+        preview_width = 0,
+      },
 
 			attach_mappings = function(prompt_bufnr, map)
 				select_background(prompt_bufnr, map)
@@ -39,6 +45,7 @@ local function image_selector(prompt, cwd)
 	end
 end
 
-M.anime_selector = image_selector("< Anime Bobs > ", "~/personal/anime")
+M.anime_selector = image_selector("< weebs ( hehe ) > ", "/mnt/c/Users/Admin/Pictures/anime/")
 
+nnoremap("<leader>w", M.anime_selector)
 return M

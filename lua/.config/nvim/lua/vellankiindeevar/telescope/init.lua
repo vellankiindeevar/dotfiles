@@ -1,3 +1,14 @@
+local Remap = require("vellankiindeevar.keymap")
+local nnoremap = Remap.nnoremap
+
+require("vellankiindeevar.telescope.wallpaper");
+require("vellankiindeevar.telescope.buf-cht");
+
+-- local pickers = require("telescope.pickers")
+-- local finders = require("telescope.finders")
+-- local previewers = require("telescope.previewers")
+-- local action_state = require("telescope.actions.state")
+-- local conf = require("telescope.config").values
 local actions = require("telescope.actions")
 
 require('telescope').setup {
@@ -18,17 +29,16 @@ require('telescope').setup {
         }
     },
     extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        },
+       --  fzy_native = {
+       --      override_generic_sorter = false,
+       --      override_file_sorter = true,
+       --  },
         file_browser={
     }
     }
 }
 
-require('telescope').load_extension('fzy_native')
-require("telescope").load_extension "file_browser"
+-- require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("git_worktree")
 
 local M = {}
@@ -40,7 +50,5 @@ M.search_nvim = function()
     })
   end
 
-vim.keymap.set("n","<leader>en", M.search_nvim)
-
+nnoremap("<leader>en", M.search_nvim)
 return M
-

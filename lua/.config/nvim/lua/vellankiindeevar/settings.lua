@@ -1,4 +1,5 @@
 vim.o.clipboard = "unnamedplus"
+vim.o.autochdir = true
 
 vim.opt.guicursor = ""
 
@@ -26,7 +27,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 20
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -43,3 +44,4 @@ vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
