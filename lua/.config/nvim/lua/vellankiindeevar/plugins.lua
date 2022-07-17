@@ -19,7 +19,7 @@ use {'numToStr/Comment.nvim'}
 -- Load Lua modules faster
 use 'lewis6991/impatient.nvim'
 
-use("sbdchd/neoformat")
+-- use("sbdchd/neoformat")
 
 use("TimUntersberger/neogit")
 
@@ -70,3 +70,4 @@ use("nvim-treesitter/playground")
 -- use("mfussenegger/nvim-dap")
 -- use("rcarriga/nvim-dap-ui")
 -- use("theHamsta/nvim-dap-virtual-text")
+use "milisims/nvim-luaref"

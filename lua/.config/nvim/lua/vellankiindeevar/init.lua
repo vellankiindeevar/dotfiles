@@ -15,7 +15,7 @@ local function load_post_plugin_config()
     require('vellankiindeevar.telescope')
     require('vellankiindeevar.lsp')
    -- require('config')
-   --  require('utils')
+    require('vellankiindeevar.utils')
 end
 
 -- If Packer is not installed, download it and all plugins and reload config
