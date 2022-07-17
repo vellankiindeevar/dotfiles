@@ -58,9 +58,3 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source "${XDG_DATA_HOME}/fast-syntax-highlighting/F-Sy-H.plugin.zsh"
 source "${XDG_DATA_HOME}/simpler/simpler.zsh"
 
-# WSL 2 specific settings.
-if grep -q "microsoft" /proc/version &>/dev/null; then
-   export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-   export LIBGL_ALWAYS_INDIRECT=1
-fi
-
