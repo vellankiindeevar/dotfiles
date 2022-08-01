@@ -55,6 +55,7 @@ use("mbbill/undotree")
 
 -- Colorscheme section
 use("gruvbox-community/gruvbox")
+-- use { "ellisonleao/gruvbox.nvim" }
 use("folke/tokyonight.nvim")
 use {
   'nvim-lualine/lualine.nvim',
@@ -71,3 +72,4 @@ use("nvim-treesitter/playground")
 -- use("rcarriga/nvim-dap-ui")
 -- use("theHamsta/nvim-dap-virtual-text")
 use "milisims/nvim-luaref"
+use ("/home/indeevar/personal/spotify-nvim-player")

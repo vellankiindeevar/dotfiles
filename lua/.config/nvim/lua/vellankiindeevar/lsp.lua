@@ -44,6 +44,8 @@ local servers = {
 	"pyright",
     "sumneko_lua",
     "marksman",
+    "clangd",
+    "html",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -4,8 +4,16 @@ function ColorMyPencils()
     vim.g.gruvbox_contrast_dark = 'hard'
     vim.g.tokyonight_transparent_sidebar = true
     vim.g.tokyonight_transparent = true
+    vim.g.tokyonight_italic_functions = true
     vim.g.gruvbox_invert_selection = '0'
     vim.opt.background = "dark"
+
+    -- require("gruvbox").setup({
+    --   bold = true,
+    --   italic = true,
+    --   inverse = true, -- invert background for search, diffs, statuslines and errors
+    --   contrast = "hard", -- can be "hard", "soft" or empty string
+    -- })
 
     vim.cmd("colorscheme " .. vim.g.colorscheme)
 

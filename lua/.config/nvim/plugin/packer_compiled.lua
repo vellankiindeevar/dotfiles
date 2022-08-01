@@ -124,15 +124,15 @@ _G.packer_plugins = {
     path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  neoformat = {
-    loaded = true,
-    path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/neoformat",
-    url = "https://github.com/sbdchd/neoformat"
-  },
   neogit = {
     loaded = true,
     path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -148,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-luaref"] = {
+    loaded = true,
+    path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/nvim-luaref",
+    url = "https://github.com/milisims/nvim-luaref"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -179,15 +184,15 @@ _G.packer_plugins = {
     path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["spotify-nvim-player"] = {
+    loaded = true,
+    path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/spotify-nvim-player",
+    url = "/home/indeevar/personal/spotify-nvim-player"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
-  },
-  ["telescope-fzy-native.nvim"] = {
-    loaded = true,
-    path = "/home/indeevar/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

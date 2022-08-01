@@ -4,12 +4,13 @@ require'lualine'.setup {
     theme = vim.g.colorscheme,
     component_separators = {'', ''},
     section_separators = {'', ''},
-    disabled_filetypes = {}
+    disabled_filetypes = {},
+    globalstatus = true,
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {{'filename'},{'diagnostics', sources = {'nvim_diagnostic'}}},
+    lualine_a = {'mode'--[[ ,'hello' ]]},
+    lualine_b = {{'branch',on_click=function() vim.cmd('!git status')end}},
+    lualine_c = {{'filename'},{'diagnostics', sources = {'nvim_diagnostic'},on_click=function() vim.diagnostic.setqflist() end}},
     lualine_x = {'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -23,5 +24,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
---  extensions = {"fugitive"}
+  -- extensions={'hello'}
 }

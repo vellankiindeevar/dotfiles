@@ -13,6 +13,7 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 # Add all local binaries to the system path.
 export PATH="${PATH}:${HOME}/.local/bin"
 export PATH="${PATH}:${HOME}/bin"
+export PATH=$PATH:~/.roswell/bin
 
 # Default programs to run.
 export EDITOR="nvim"
@@ -24,5 +25,4 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
-
 

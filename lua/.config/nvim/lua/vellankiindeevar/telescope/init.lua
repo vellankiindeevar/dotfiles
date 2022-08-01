@@ -34,12 +34,14 @@ require('telescope').setup {
        --      override_file_sorter = true,
        --  },
         file_browser={
+            --[[ theme = "ivy", ]]
     }
     }
 }
 
 -- require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("git_worktree")
+require("telescope").load_extension "file_browser"
 
 local M = {}
 

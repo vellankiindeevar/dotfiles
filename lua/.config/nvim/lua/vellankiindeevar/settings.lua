@@ -1,3 +1,5 @@
+vim.o.mouse= "a"
+
 vim.o.clipboard = "unnamedplus"
 vim.o.autochdir = true
 
