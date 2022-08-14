@@ -1,3 +1,10 @@
+local ok, lspkind = pcall(require, "lspkind")
+if not ok then
+  return
+end
+
+lspkind.init()
+
 -- i have to develope a source for autocompleting python packages and its versions
 require("luasnip.loaders.from_vscode").lazy_load()
 require('nvim-autopairs').setup{}
@@ -7,6 +14,23 @@ vim.opt.completeopt = {"menu","menuone","noselect"}
 local cmp = require'cmp'
 
 cmp.setup({
+
+  formatting = {
+    -- Youtube: How to set up nice formatting for your sources.
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+        gh_issues = "[issues]",
+        tn = "[TabNine]",
+      },
+    },
+  },
+
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.

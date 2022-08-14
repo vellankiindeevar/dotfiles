@@ -1,5 +1,5 @@
 shell:
- program: "C:/Windows/system32/wsl.exe -d Ubuntu-22.04"
+ program: "wsl.exe -d Ubuntu-22.04"
 
 working_directory: '\\wsl.localhost\Ubuntu-22.04\home\indeevar' 
 
@@ -31,6 +31,7 @@ font:
    family: JetBrainsMono Nerd Font Mono
    style: BoldItalic
   size: 13
+
 draw_bold_text_with_bright_colors: true
 
 selection:

@@ -4,11 +4,6 @@ local nnoremap = Remap.nnoremap
 require("vellankiindeevar.telescope.wallpaper");
 require("vellankiindeevar.telescope.buf-cht");
 
--- local pickers = require("telescope.pickers")
--- local finders = require("telescope.finders")
--- local previewers = require("telescope.previewers")
--- local action_state = require("telescope.actions.state")
--- local conf = require("telescope.config").values
 local actions = require("telescope.actions")
 
 require('telescope').setup {
@@ -28,20 +23,17 @@ require('telescope').setup {
             },
         }
     },
-    extensions = {
-       --  fzy_native = {
-       --      override_generic_sorter = false,
-       --      override_file_sorter = true,
-       --  },
-        file_browser={
-            --[[ theme = "ivy", ]]
-    }
-    }
+    -- extensions = {
+    --    --  fzy_native = {
+    --    --      override_generic_sorter = false,
+    --    --      override_file_sorter = true,
+    --    --  },
+    --     file_browser={
+    --         --[[ theme = "ivy", ]]
+    -- }
+    -- }
 }
 
--- require('telescope').load_extension('fzy_native')
-require("telescope").load_extension("git_worktree")
-require("telescope").load_extension "file_browser"
 
 local M = {}
 

@@ -46,4 +46,4 @@ vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
-
+vim.opt.pumblend = 17

@@ -1,5 +1,3 @@
-local lsp_installer = require("nvim-lsp-installer")
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -51,23 +49,20 @@ local servers = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-for _, name in pairs(servers) do
-	local server_is_found, server = lsp_installer.get_server(name)
-	if server_is_found then
-		if not server:is_installed() then
-			print("Installing " .. name)
-			server:install()
-		end
-	end
-end
----------------------------------------------------
-lsp_installer.on_server_ready(function(server)
-	-- Specify the default options which we'll use to setup all servers
-	local default_opts = {
-		on_attach = on_attach,
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = servers,
+    automatic_installation = true,
+})
+-- require("mason-tool-installer").setup({
+--   ensure_installed = { "stylua", "black", "isort", "flake8" },
+-- })
+for _, server in ipairs(servers) do
+  require('lspconfig')[server].setup {
+    on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
-	}
+     capabilities = capabilities,
+  }
+end
 
-	server:setup(default_opts)
-end)
+
