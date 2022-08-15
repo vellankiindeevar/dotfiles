@@ -69,3 +69,4 @@ use {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "onsails/lspkind-nvim",
 }
+use {'tpope/vim-fugitive'}
