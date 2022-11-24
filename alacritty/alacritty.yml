@@ -1,7 +1,9 @@
-shell:
- program: "wsl.exe -d Ubuntu-22.04"
+# shell:
+#  program: "wsl.exe -d Ubuntu-22.04"
 
-working_directory: '\\wsl.localhost\Ubuntu-22.04\home\indeevar' 
+shell:
+ program: "ubuntu2204.exe"
+# working_directory: '\\wsl.localhost\Ubuntu-22.04\home\indeevar' 
 
 window:
   padding:

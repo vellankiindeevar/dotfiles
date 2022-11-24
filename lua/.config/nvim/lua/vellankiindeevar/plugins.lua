@@ -43,7 +43,6 @@ use("mbbill/undotree")
 
 -- Colorscheme section
 use("gruvbox-community/gruvbox")
-use("folke/tokyonight.nvim")
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -69,4 +68,7 @@ use {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "onsails/lspkind-nvim",
 }
-use {'tpope/vim-fugitive'}
+
+use "elihunter173/dirbuf.nvim"
+use '/home/indeevar/personal/player-bare/testing-lualine-components'
+

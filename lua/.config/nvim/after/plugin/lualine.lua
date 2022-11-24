@@ -8,7 +8,7 @@ require'lualine'.setup {
     globalstatus = true,
   },
   sections = {
-    lualine_a = {'mode'--[[ ,'hello' ]]},
+    lualine_a = {'mode'--[[ ,'hello'  ]]},
     lualine_b = {{'branch',on_click=function() vim.cmd('!git status')end}},
     lualine_c = {{'filename'},{'diagnostics', sources = {'nvim_diagnostic'},on_click=function() vim.diagnostic.setqflist() end}},
     lualine_x = {'filetype'},

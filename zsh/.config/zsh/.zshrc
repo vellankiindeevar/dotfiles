@@ -64,3 +64,7 @@ if grep -q "microsoft" /proc/version &>/dev/null; then
    export LIBGL_ALWAYS_INDIRECT=1
 fi
 
+# WSL 2 specific settings. ( for alacritty)
+# if grep -q "microsoft" /proc/version &>/dev/null; then
+#     cd $HOME
+# fi
