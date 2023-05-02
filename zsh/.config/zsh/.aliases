@@ -26,6 +26,4 @@ alias ll="ls -alF --color"
 alias la="ls -A --color"
 alias l="ls -CF --color"
 
-alias sz="source ${XDG_CONFIG_HOME}/zsh/.zshrc"
-alias alacritty.yml="vim /mnt/c/Users/Admin/AppData/Roaming/alacritty/alacritty.yml"
 

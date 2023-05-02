@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Load colors so we can access $fg and more.
 autoload -U colors && colors
 
@@ -57,5 +59,4 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # Load zsh plugins.
 source "${XDG_DATA_HOME}/fast-syntax-highlighting/F-Sy-H.plugin.zsh"
 source "${XDG_DATA_HOME}/simpler/simpler.zsh"
-
 
