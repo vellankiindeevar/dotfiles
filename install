@@ -1,0 +1,100 @@
+#!/bin/bash
+# echo '' | keepassxc-cli show -s ~/pfiles.kdbx "ssh/arch" -a password > ~/.ssh/id_ed25519
+
+update_and_install_pacman_packages() {
+    sudo pacman -Syu &&
+    sudo pacman -S --needed --noconfirm - < ./pacman.input
+}
+
+install_pacman_packages() {
+    sudo pacman -S --needed --noconfirm - < ./pacman.input
+}
+
+install_yay() {
+    git clone https://aur.archlinux.org/yay-bin.git &&
+    cd yay-bin &&
+    makepkg -si &&
+    cd .. &&
+    sudo rm -r yay-bin
+}
+
+install_yay_packages() {
+    yay -S --needed --noconfirm - < ./yay.input
+}
+
+bluetooth() {
+    sudo systemctl enable bluetooth
+}
+
+setup_stow() {
+    stow -t ~ config
+}
+
+reload_stow() {
+    stow -t ~ -D config &&
+    stow -t ~ config
+}
+
+install_neovim() {
+	latest=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+	wget "https://github.com/neovim/neovim/releases/download/$latest/nvim.appimage"
+}
+
+pre_kmonad() {
+	# Add self to the input and uinput groups
+	sudo usermod -aG input $USER 
+	sudo groupadd uinput
+	sudo usermod -aG uinput $USER
+
+	echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee /etc/udev/rules.d/90-uinput.rules
+
+	# This seems to be needed because uinput isn't compiled as a loadable module these days.
+	# See https://github.com/chrippa/ds4drv/issues/93#issuecomment-265300511
+	echo uinput | sudo tee /etc/modules-load.d/uinput.conf
+	echo 'pre_kmonad is done...'
+}
+
+post_kmonad() {
+	sudo cp /home/indeevar/.config/kmonad/kmonad@.service /usr/lib/systemd/system/kmonad.service
+	sudo systemctl daemon-reload
+	sudo systemctl enable --now kmonad
+}
+
+
+post_install(){
+    echo "Changing default shell to zsh..."
+    sudo usermod -s /usr/bin/zsh $USER
+
+
+    echo "installing fonts with getnf..."
+    getnf -i UbuntuMono
+
+}
+
+
+# if [ $# -eq 0 ]; then
+#     echo "No arguments provided."
+#     exit 1
+# fi
+# 
+# if [ "$(type -t "$1")" = "function" ]; then
+#     "$1"
+# else
+#     echo "Invalid option."
+# fi
+
+
+# List all function names
+function_names=$(declare -F | awk '{print $3}')
+
+# Use fzf to select multiple functions
+selected_functions=$(echo "$function_names" | fzf --multi)
+
+# Execute the selected functions asynchronously but sequentially
+for func in $selected_functions; do
+    {
+        $func
+    } &
+    pid=$!
+    wait $pid
+done
